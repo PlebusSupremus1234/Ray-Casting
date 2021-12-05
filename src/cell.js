@@ -25,7 +25,8 @@ class Cell {
 
         for (let i of [left, right, top, bottom]) {
             if (i) {
-                const distance = dist(x1, y1, i.x, i.y);
+                let distance = dist(x1, y1, i.x, i.y);
+
                 if (distance < min) {
                     min = distance;
                     closest = i;

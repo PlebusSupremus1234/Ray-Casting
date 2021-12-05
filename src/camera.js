@@ -1,10 +1,10 @@
 class Camera {
-    constructor(x, y, direction, FoV) {
+    constructor(x, y, direction, FoV, resolution) {
         this.x = x;
         this.y = y;
         this.dir = direction;
         this.FoV = FoV;
-        this.resolution = 20;
+        this.resolution = resolution;
     }
 
     draw() {
