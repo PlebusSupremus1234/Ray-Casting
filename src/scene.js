@@ -15,9 +15,7 @@ class Scene {
             if (this.scene[i]) {
                 const sq = this.scene[i] * this.scene[i];
 
-                const wSq = width * width;
-
-                fill(map(sq, 0, wSq, 255, 0));
+                fill(map(sq, 0, displayWidth * displayWidth + this.height * this.height, 255, 0));
 
                 let x = this.xOffset + spacing * i;
 

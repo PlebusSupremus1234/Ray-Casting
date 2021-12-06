@@ -6,7 +6,7 @@ class Ray {
         this.x2 = x + 1000 * Math.cos(direction);
         this.y2 = y + 1000 * Math.sin(direction);
 
-        this.bearing = bearing(this.x1, this.y1, this.x2, this.y2);
+        this.heading = bearing(this.x1, this.y1, this.x2, this.y2);
     }
 
     cast(grid) {

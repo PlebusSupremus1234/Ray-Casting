@@ -87,8 +87,12 @@ function draw() {
         let ray = new Ray(camera.x, camera.y, i);
         let distance = ray.cast(grid);
 
-        if (distance) scene.scene.push(distance);
-        else scene.scene.push(null);
+        if (distance) {
+            const a = ray.heading - camera.dir;
+            distance *= Math.cos(a);
+
+            scene.scene.push(distance);
+        } else scene.scene.push(null);
     }
 
     scene.draw();
