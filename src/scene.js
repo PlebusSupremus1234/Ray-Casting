@@ -20,7 +20,7 @@ class Scene {
                 let x = this.xOffset + spacing * i;
 
                 let height = map(this.scene[i], 0, width, this.height, 0);
-                rect(x, (this.height - height) / 2, spacing, height);
+                rect(x, (this.height - height) / 2, spacing + 1, height);
             }
         }
     }

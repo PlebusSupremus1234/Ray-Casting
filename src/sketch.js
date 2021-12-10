@@ -27,12 +27,13 @@ let displayWidth;
 
 const camera = new Camera(
     50, 50, // Position
-    Math.PI / 4, // Direction
-    Math.PI / 4, // FoV
-    Math.PI / 50, // Resolution
+    45, // Direction
+    45, // FoV
+    2, // Resolution
 );
 
 let FoVSlider;
+
 let ResSlider;
 
 function setup() {
@@ -52,9 +53,20 @@ function setup() {
         }
     }
 
-    FoVSlider = createSlider(0, 2 * Math.PI, Math.PI / 4, 0.01);
+    FoVSlider = createSlider(
+        1, // Min
+        360, // Max
+        45, // Value
+        1, // Step
+    );
     FoVSlider.style('width', '80px');
-    ResSlider = createSlider(Math.PI / 500, Math.PI / 10, Math.PI / 50, Math.PI / 100);
+
+    ResSlider = createSlider(
+        0.03, // Min
+        7.97, // Max
+        2, // Value
+        0.01, // Step
+    );
     ResSlider.style('width', '80px');
 }
 
@@ -77,8 +89,7 @@ function draw() {
     }
 
     camera.FoV = FoVSlider.value();
-    // camera.resolution = ResSlider.value();
-    camera.resolution = Math.PI / 5000;
+    camera.resolution = 8 - ResSlider.value();
     camera.draw();
 
     const scene = new Scene(displayWidth, 500, height);
@@ -89,7 +100,7 @@ function draw() {
 
         if (distance) {
             const a = ray.heading - camera.dir;
-            distance *= Math.cos(a);
+            distance *= Math.cos(radians(a));
 
             scene.scene.push(distance);
         } else scene.scene.push(null);

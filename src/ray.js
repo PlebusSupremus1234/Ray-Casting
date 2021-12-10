@@ -3,8 +3,8 @@ class Ray {
         this.x1 = x;
         this.y1 = y;
 
-        this.x2 = x + 1000 * Math.cos(direction);
-        this.y2 = y + 1000 * Math.sin(direction);
+        this.x2 = x + 1000 * Math.cos(radians(direction));
+        this.y2 = y + 1000 * Math.sin(radians(direction));
 
         this.heading = bearing(this.x1, this.y1, this.x2, this.y2);
     }
