@@ -24,6 +24,7 @@ let template = [
 let grid = [];
 
 let displayWidth;
+let displayHeight;
 
 const camera = new Camera(
     50, 50, // Position
@@ -42,8 +43,9 @@ function setup() {
     let cellSize = 25;
 
     displayWidth = width * cellSize;
+    displayHeight = height * cellSize;
 
-    createCanvas(displayWidth + 500, height * cellSize);
+    createCanvas(displayWidth + 500, displayHeight);
 
     for (let i = 0; i < template.length; i++) {
         for (let j = 0; j < template[i].length; j++) {
@@ -62,10 +64,10 @@ function setup() {
     FoVSlider.style('width', '80px');
 
     ResSlider = createSlider(
-        0.03, // Min
-        7.97, // Max
-        2, // Value
-        0.01, // Step
+        3.25, // Min
+        7.95, // Max
+        4, // Value
+        0.05, // Step
     );
     ResSlider.style('width', '80px');
 }
